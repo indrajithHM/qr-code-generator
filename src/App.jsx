@@ -114,7 +114,7 @@ function App() {
 <header className="app-header">
   {/* Add this logo section */}
   <div className="logo">
-    <div className = "logo-icon"><img src="/QRLogo.png" alt="QR Logo" /></div>
+    <div className = "logo-icon"><img src="public/QRLogo.png" alt="QR Logo" /></div>
    
     <div className="logo-text"><h3>QR CODE GENERATOR</h3></div>
   </div>
