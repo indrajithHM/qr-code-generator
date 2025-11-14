@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import QRCode from 'react-qr-code'
 // Import CSS styles
 import './App.css'
+import QRLogo from './assets/QRLogo.png'
 
 // Define our main App component
 function App() {
@@ -114,7 +115,7 @@ function App() {
 <header className="app-header">
   {/* Add this logo section */}
   <div className="logo">
-    <div className = "logo-icon"><img src="/qr-code-generator/QRLogo.png" alt="QR Logo" /></div>
+    <div className = "logo-icon"><img src={QRLogo} alt="QR Logo" /></div>
    
     <div className="logo-text"><h3>QR CODE GENERATOR</h3></div>
   </div>
