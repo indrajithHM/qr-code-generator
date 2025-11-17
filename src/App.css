@@ -26,6 +26,7 @@
   padding: 30px 25px;
   box-shadow: 0 20px 40px rgb(239, 237, 237);
   display: flex;
+  align-items: stretch;
   flex-direction: column;
   animation: fadeIn .6s ease;
   margin: auto;
