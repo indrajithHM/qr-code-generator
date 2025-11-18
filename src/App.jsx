@@ -44,10 +44,10 @@ function App() {
     if (url.trim()) {
       let finalUrl = url.trim()
       
-      // Add https:// if no protocol is specified
-      if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://')) {
-        finalUrl = 'https://' + finalUrl
-      }
+      // // Add https:// if no protocol is specified
+      // if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://')) {
+      //   finalUrl = 'https://' + finalUrl
+      // }
       
       // Update state with final URL and show QR code
       setQrValue(finalUrl)
@@ -138,7 +138,7 @@ function App() {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Enter your URL (e.g., google.com or https://example.com)"
+              placeholder="Enter your URL/Data (e.g., google.com or https://example.com)"
               className="url-input"
             />
 
@@ -186,7 +186,7 @@ function App() {
             {/* QR code information */}
             <div className="qr-info">
               <p className="qr-url">
-                <strong>URL:</strong>
+                <strong>URL/DATA : </strong>
                 <a href={qrValue} target="_blank" rel="noopener noreferrer">
                   {/* Truncate long URLs on mobile */}
                   {isMobile && qrValue.length > 40
