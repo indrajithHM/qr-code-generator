@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/qr-code-generator/sw.js', { scope: '/qr-code-generator/' })})}
