@@ -55,31 +55,31 @@ function App() {
     }
   }
 
-  // Function to download QR code as PNG image
-  const downloadQR = () => {
-    // Check if our ref exists and QR code is rendered
-    if (qrRef.current) {
-      // Find the canvas element inside QR code container
-      const canvas = qrRef.current.querySelector('canvas')
-      
-      if (canvas) {
-        // Convert canvas to PNG data URL
-        const pngUrl = canvas
-          .toDataURL('image/png')
-          .replace('image/png', 'image/octet-stream')
-        
-        // Create temporary download link
-        const downloadLink = document.createElement('a')
-        downloadLink.href = pngUrl
-        downloadLink.download = 'qrcode.png' // Set filename
-        
-        // Add to DOM, click, and remove
-        document.body.appendChild(downloadLink)
-        downloadLink.click()
-        document.body.removeChild(downloadLink)
-      }
-    }
-  }
+ const downloadQR = () => {
+  const svg = qrRef.current.querySelector('svg');
+  if (!svg) return;
+
+  const svgData = new XMLSerializer().serializeToString(svg);
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  const img = new Image();
+  img.onload = () => {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+
+    const pngFile = canvas.toDataURL('image/png');
+
+    const downloadLink = document.createElement('a');
+    downloadLink.download = 'qrcode.png';
+    downloadLink.href = pngFile;
+    downloadLink.click();
+  };
+
+  img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
+};
+
 
   // Function to reset the form and generate new QR code
   const resetQR = () => {
